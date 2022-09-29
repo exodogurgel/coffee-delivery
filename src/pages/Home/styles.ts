@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import backgroundImage from '../../assets/background.png'
 
 export const HomeContainer = styled.main`
+  margin-top: 6.5rem;
   padding-top: 5.875rem;
   display: flex;
   flex-direction: column;

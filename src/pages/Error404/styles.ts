@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Error404Container = styled.div`
   display: flex;
+  margin-top: 6.5rem;
 
   div:first-child {
     max-width: 35rem;

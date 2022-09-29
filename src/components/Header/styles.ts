@@ -2,29 +2,41 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding-block: 2rem;
+  position: fixed;
+  z-index: 999;
+  right: 0;
+  left: 0;
+  padding-left: calc(50% - 35rem);
+  padding-right: calc(50% - 35rem);
+  max-width: 100%;
+
+  background-color: ${(props) => props.theme['gray-100']};
 
   div {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.75rem;
 
-    span {
+    div {
       display: flex;
       align-items: center;
-      gap: 4px;
-      padding: 0.5rem;
-      border-radius: 6px;
+      gap: 0.75rem;
 
-      font-size: 0.875rem;
-      background-color: ${(props) => props.theme['purple-300']};
-      color: ${(props) => props.theme['purple-700']};
+      span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 0.5rem;
+        border-radius: 6px;
 
-      svg {
-        color: ${(props) => props.theme['purple-500']};
+        font-size: 0.875rem;
+        background-color: ${(props) => props.theme['purple-300']};
+        color: ${(props) => props.theme['purple-700']};
+
+        svg {
+          color: ${(props) => props.theme['purple-500']};
+        }
       }
     }
   }
