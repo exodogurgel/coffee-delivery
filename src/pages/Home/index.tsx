@@ -12,6 +12,7 @@ import {
 import bannerImage from '../../assets/coffee-delivery.png'
 import { CoffeeCard } from './components/CoffeeCard'
 import { InfoWithIcon } from './components/InfoWithIcon'
+import { coffees } from '../../data/coffees'
 
 export function Home() {
   return (
@@ -63,15 +64,9 @@ export function Home() {
       <CoffeeMenu>
         <h2>Nossos cafés</h2>
         <CoffeeList>
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
+          {coffees.map((coffee) => {
+            return <CoffeeCard key={coffee.id} coffee={coffee} />
+          })}
         </CoffeeList>
       </CoffeeMenu>
     </HomeContainer>
