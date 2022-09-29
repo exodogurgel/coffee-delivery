@@ -48,41 +48,6 @@ export const Information = styled.div`
   gap: 1.25rem;
 `
 
-const BACKGROUND_COLOR = {
-  yellow: 'yellow-500',
-  yellowDark: 'yellow-700',
-  gray: 'gray-700',
-  purple: 'purple-500',
-} as const
-
-interface InfoProps {
-  backgroundColor: keyof typeof BACKGROUND_COLOR
-}
-
-export const Info = styled.div<InfoProps>`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  span:first-child {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-
-    background-color: ${(props) =>
-      props.theme[BACKGROUND_COLOR[props.backgroundColor]]};
-    color: ${(props) => props.theme['gray-100']};
-    width: 2rem;
-    height: 2rem;
-  }
-
-  p {
-    color: ${(props) => props.theme['gray-700']};
-    line-height: 1.3;
-  }
-`
-
 export const Banner = styled.div``
 
 export const CoffeeMenu = styled.div`
@@ -92,3 +57,4 @@ export const CoffeeMenu = styled.div`
     line-height: 1.3;
   }
 `
+export const CoffeeList = styled.section``

@@ -2,14 +2,16 @@ import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import {
   Background,
   Banner,
+  CoffeeList,
   CoffeeMenu,
   Content,
   HomeContainer,
-  Info,
   Information,
 } from './styles'
 
 import bannerImage from '../../assets/coffee-delivery.png'
+import { CoffeeCard } from './components/CoffeeCard'
+import { InfoWithIcon } from './components/InfoWithIcon'
 
 export function Home() {
   return (
@@ -24,33 +26,29 @@ export function Home() {
           </p>
 
           <Information>
-            <Info backgroundColor="yellowDark">
-              <span>
-                <ShoppingCart weight="fill" />
-              </span>
-              <span>Compra simples e segura</span>
-            </Info>
+            <InfoWithIcon
+              bgIcon="yellowDark"
+              icon={<ShoppingCart weight="fill" />}
+              text="Compra simples e segura"
+            />
 
-            <Info backgroundColor="gray">
-              <span>
-                <Package weight="fill" />
-              </span>
-              <span>Embalagem mantém o café intacto</span>
-            </Info>
+            <InfoWithIcon
+              bgIcon="gray"
+              icon={<Package weight="fill" />}
+              text="Embalagem mantém o café intacto"
+            />
 
-            <Info backgroundColor="yellow">
-              <span>
-                <Timer weight="fill" />
-              </span>
-              <span>Entrega rápida e rastreada</span>
-            </Info>
+            <InfoWithIcon
+              bgIcon="yellow"
+              icon={<Timer weight="fill" />}
+              text="Entrega rápida e rastreada"
+            />
 
-            <Info backgroundColor="purple">
-              <span>
-                <Coffee weight="fill" />
-              </span>
-              <span>O café chega fresquinho até você</span>
-            </Info>
+            <InfoWithIcon
+              bgIcon="purple"
+              icon={<Coffee weight="fill" />}
+              text="O café chega fresquinho até você"
+            />
           </Information>
         </div>
 
@@ -64,6 +62,9 @@ export function Home() {
 
       <CoffeeMenu>
         <h2>Nossos cafés</h2>
+        <CoffeeList>
+          <CoffeeCard />
+        </CoffeeList>
       </CoffeeMenu>
     </HomeContainer>
   )
