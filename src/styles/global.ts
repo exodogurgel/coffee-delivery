@@ -28,4 +28,10 @@ export const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6, strong {
     font-family: 'Baloo 2', cursive;
   }
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 87.5%;
+    }
+  }
 `

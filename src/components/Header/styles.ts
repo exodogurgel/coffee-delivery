@@ -40,6 +40,10 @@ export const HeaderContainer = styled.header`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    padding-inline: 2rem;
+  }
 `
 
 export const Cart = styled(NavLink)`
