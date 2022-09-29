@@ -1,9 +1,24 @@
+import { useState } from 'react'
 import { AddCartWrapper, CoffeeCardContainer, InputWrapper } from './styles'
 
 import coffeeImage from '../../../../assets/type-americano.svg'
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
 
 export function CoffeeCard() {
+  const [quantity, setQuantity] = useState(1)
+
+  function handleIncrease() {
+    setQuantity((state) => state + 1)
+  }
+
+  function handleDecrease() {
+    if (quantity <= 1) {
+      return
+    }
+
+    setQuantity((state) => state - 1)
+  }
+
   return (
     <CoffeeCardContainer>
       <img src={coffeeImage} alt="" />
@@ -15,17 +30,17 @@ export function CoffeeCard() {
           <small>R$</small> <span> 9,80 </span>
         </div>
         <InputWrapper>
-          <button type="button">
+          <button type="button" onClick={handleDecrease}>
             <Minus size={14} />
           </button>
-          <input type="number" />
-          <button type="button">
+          <input type="number" value={quantity} />
+          <button type="button" onClick={handleIncrease}>
             <Plus size={14} />
           </button>
         </InputWrapper>
-        <a href="">
+        <button>
           <ShoppingCartSimple size={22} weight="fill" />
-        </a>
+        </button>
       </AddCartWrapper>
     </CoffeeCardContainer>
   )

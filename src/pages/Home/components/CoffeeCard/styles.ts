@@ -59,11 +59,12 @@ export const AddCartWrapper = styled.div`
     margin-right: 1rem;
   }
 
-  a {
+  > button:last-child {
     width: 2.375rem;
     height: 2.375rem;
     background-color: ${(props) => props.theme['purple-700']};
     color: ${(props) => props.theme['gray-100']};
+    border: none;
     border-radius: 6px;
 
     display: flex;
@@ -73,7 +74,7 @@ export const AddCartWrapper = styled.div`
     transition: background-color 0.1s;
   }
 
-  a:hover {
+  > button:not(:disabled):hover {
     background-color: ${(props) => props.theme['purple-500']};
   }
 `

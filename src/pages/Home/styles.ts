@@ -51,10 +51,19 @@ export const Information = styled.div`
 export const Banner = styled.div``
 
 export const CoffeeMenu = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+
   h2 {
     font-size: 2rem;
     font-weight: 800;
     line-height: 1.3;
+    margin-bottom: 3.375rem;
   }
 `
-export const CoffeeList = styled.section``
+export const CoffeeList = styled.section`
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  column-gap: 2rem;
+  row-gap: 2.5rem;
+`
