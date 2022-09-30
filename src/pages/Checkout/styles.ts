@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const CheckoutContainer = styled.main`
   margin-top: 9rem;
+  display: flex;
+  gap: 2rem;
 
   h2 {
     font-size: 1.125rem;
@@ -83,6 +85,7 @@ export const PaymentList = styled.ul`
   li {
     list-style: none;
     background-color: ${(props) => props.theme['gray-400']};
+    color: ${(props) => props.theme['gray-700']};
     width: 11.25rem;
     height: 3.125rem;
     border-radius: 6px;
@@ -129,4 +132,6 @@ export const PaymentList = styled.ul`
   }
 `
 
-export const OrderDetailsCheckout = styled.div``
+export const OrderDetailsCheckout = styled.div`
+  width: 28rem;
+`

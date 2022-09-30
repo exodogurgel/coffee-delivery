@@ -22,8 +22,8 @@ import {
 export function Checkout() {
   return (
     <CheckoutContainer>
-      <h2>Complete seu pedido</h2>
       <form action="">
+        <h2>Complete seu pedido</h2>
         <FormContainer>
           <AddressContainer>
             <FormTitle
@@ -82,7 +82,9 @@ export function Checkout() {
           </PaymentMethodContainer>
         </FormContainer>
       </form>
-      <OrderDetailsCheckout></OrderDetailsCheckout>
+      <OrderDetailsCheckout>
+        <h2>Cafés selecionados</h2>
+      </OrderDetailsCheckout>
     </CheckoutContainer>
   )
 }

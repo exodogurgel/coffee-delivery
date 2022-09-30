@@ -1,13 +1,9 @@
 import { useState } from 'react'
-import {
-  AddCartWrapper,
-  CoffeeCardContainer,
-  InputWrapper,
-  Tags,
-} from './styles'
+import { AddCartWrapper, CoffeeCardContainer, Tags } from './styles'
 
-import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
+import { ShoppingCartSimple } from 'phosphor-react'
 import { FormatPrice } from '../../../../utils/formatPrice'
+import { InputAmount } from '../../../../components/InputAmount'
 
 interface Coffee {
   id: number
@@ -53,15 +49,11 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
         <div>
           <small>R$</small> <span> {formattedPrice} </span>
         </div>
-        <InputWrapper>
-          <button type="button" onClick={handleDecrease}>
-            <Minus size={14} />
-          </button>
-          <input type="number" value={quantity} readOnly />
-          <button type="button" onClick={handleIncrease}>
-            <Plus size={14} />
-          </button>
-        </InputWrapper>
+        <InputAmount
+          handleDecrease={handleDecrease}
+          handleIncrease={handleIncrease}
+          quantity={quantity}
+        />
         <button>
           <ShoppingCartSimple size={22} weight="fill" />
         </button>
