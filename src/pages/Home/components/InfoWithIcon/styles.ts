@@ -26,6 +26,10 @@ export const InfoWithIconContainer = styled.div<InfoContainerProps>`
     color: ${(props) => props.theme['gray-100']};
     width: 2rem;
     height: 2rem;
+
+    @media (max-width: 768px) {
+      width: 2.7rem;
+    }
   }
 
   p {

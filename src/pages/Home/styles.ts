@@ -18,6 +18,10 @@ export const Background = styled.div`
   top: 104px;
   right: 0;
   left: 0;
+
+  @media (max-width: 767px) {
+    height: 68rem;
+  }
 `
 
 export const Content = styled.div`
@@ -41,6 +45,11 @@ export const Content = styled.div`
       line-height: 1.625rem;
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 4rem;
+  }
 `
 
 export const Information = styled.div`
@@ -49,7 +58,11 @@ export const Information = styled.div`
   gap: 1.25rem;
 `
 
-export const Banner = styled.div``
+export const Banner = styled.div`
+  img {
+    width: 100%;
+  }
+`
 
 export const CoffeeMenu = styled.div`
   margin-top: 2rem;
@@ -67,4 +80,11 @@ export const CoffeeList = styled.section`
   grid-template-columns: repeat(4, auto);
   column-gap: 2rem;
   row-gap: 2.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+    column-gap: 1rem;
+
+    overflow-x: scroll;
+  }
 `
