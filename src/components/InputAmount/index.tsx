@@ -14,11 +14,11 @@ export function InputAmount({
 }: InputAmountProps) {
   return (
     <InputAmountContainer>
-      <button type="button" onClick={handleDecrease}>
+      <button title="Diminuir" type="button" onClick={handleDecrease}>
         <Minus size={14} />
       </button>
       <input type="number" value={quantity} readOnly />
-      <button type="button" onClick={handleIncrease}>
+      <button title="Aumentar" type="button" onClick={handleIncrease}>
         <Plus size={14} />
       </button>
     </InputAmountContainer>
