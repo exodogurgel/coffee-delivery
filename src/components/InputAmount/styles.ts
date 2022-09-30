@@ -4,13 +4,13 @@ export const InputAmountContainer = styled.div`
   display: flex;
   align-items: center;
   width: 4.5rem;
-  height: 2.375rem;
+  height: 100%;
 
   position: relative;
 
   input {
     width: 100%;
-    height: 2.375rem;
+    height: 100%;
     background-color: ${(props) => props.theme['gray-400']};
     border: none;
     border-radius: 6px;

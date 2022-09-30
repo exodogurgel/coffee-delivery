@@ -6,6 +6,7 @@ import {
   Money,
 } from 'phosphor-react'
 import { FormTitle } from './components/FormTitle'
+import { ItemCart } from './components/ItemCart'
 import {
   CheckoutContainer,
   OptionalInput,
@@ -17,6 +18,8 @@ import {
   SmallInput,
   PaymentMethodContainer,
   PaymentList,
+  OrderConfirm,
+  TotalWrapper,
 } from './styles'
 
 export function Checkout() {
@@ -84,6 +87,26 @@ export function Checkout() {
       </form>
       <OrderDetailsCheckout>
         <h2>Cafés selecionados</h2>
+        <OrderConfirm>
+          <ItemCart />
+          <ItemCart />
+          <TotalWrapper>
+            <div>
+              <small>Total de itens</small>
+              <span>R$ 19,80</span>
+            </div>
+            <div>
+              <small>Entrega</small>
+              <span>R$ 3,50</span>
+            </div>
+            <div>
+              <strong>Total</strong>
+              <strong>R$ 23,30</strong>
+            </div>
+
+            <button type="submit">Confirmar Pedido</button>
+          </TotalWrapper>
+        </OrderConfirm>
       </OrderDetailsCheckout>
     </CheckoutContainer>
   )
