@@ -54,7 +54,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
           handleIncrease={handleIncrease}
           quantity={quantity}
         />
-        <button>
+        <button type="button" title="Adicionar ao carrinho">
           <ShoppingCartSimple size={22} weight="fill" />
         </button>
       </AddCartWrapper>
