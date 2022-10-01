@@ -37,6 +37,27 @@ export const AddressContainer = styled.div`
   }
 `
 
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &:nth-child(2) {
+    width: 100%;
+  }
+
+  > p {
+    position: absolute;
+    font-size: 0.75rem;
+    top: -1rem;
+    color: ${(props) => props.theme['yellow-700']};
+
+    ::before {
+      content: '⚠ ';
+    }
+  }
+`
+
 const BaseInput = styled.input`
   height: 2.625rem;
   width: 100%;
@@ -89,6 +110,15 @@ export const PaymentMethodContainer = styled.div`
   margin-top: 0.75rem;
   background-color: ${(props) => props.theme['gray-200']};
   padding: 2.5rem;
+
+  position: relative;
+
+  > p {
+    position: absolute;
+    font-size: 0.75rem;
+    top: 1rem;
+    color: ${(props) => props.theme['yellow-700']};
+  }
 `
 
 export const PaymentList = styled.ul`

@@ -1,4 +1,6 @@
-import { useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as zod from 'zod'
 
 import {
   Bank,
@@ -23,17 +25,55 @@ import {
   OrderConfirm,
   TotalWrapper,
   ItemsListContainer,
+  InputWrapper,
 } from './styles'
 
-export function Checkout() {
-  const navigate = useNavigate()
+// type FormData = {
+//   cep: number
+//   city: string
+//   complement: string
+//   neighborhood: string
+//   number: number
+//   payment: string
+//   road: string
+//   uf: string
+// }
 
-  function handlePageSuccess() {
-    navigate('/success')
+const AddressConfirmValidationSchema = zod.object({
+  cep: zod.number().min(100000, 'Informe o cep corretamente'),
+  city: zod.string().min(1, 'Informe a cidade'),
+  complement: zod.string(),
+  neighborhood: zod.string().min(1, 'Informe o bairro'),
+  number: zod.number().min(1, 'Informe o numero da casa'),
+  payment: zod.string().min(1, 'Informe o método de pagamento'),
+  road: zod.string().min(1, 'Informe o nome da rua'),
+  uf: zod.string().min(1, 'Informe'),
+})
+
+type AddressConfirmFormData = zod.infer<typeof AddressConfirmValidationSchema>
+
+export function Checkout() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<AddressConfirmFormData>({
+    resolver: zodResolver(AddressConfirmValidationSchema),
+  })
+
+  function handleAddressConfirmation(data: AddressConfirmFormData) {
+    console.log(data)
+    reset()
   }
+
   return (
     <CheckoutContainer>
-      <form action="">
+      <form
+        onSubmit={handleSubmit(handleAddressConfirmation)}
+        action=""
+        id="address-form"
+      >
         <h2>Complete seu pedido</h2>
         <FormContainer>
           <AddressContainer>
@@ -43,18 +83,62 @@ export function Checkout() {
               icon={<MapPinLine size={22} />}
               iconColor="yellow-700"
             />
-            <MediumInput placeholder="CEP" />
-            <LargerInput placeholder="Rua" />
+            <InputWrapper>
+              <MediumInput
+                placeholder="CEP"
+                type="number"
+                {...register('cep', { valueAsNumber: true })}
+              />
+              {errors.cep ? (
+                <p>
+                  {errors.cep.message === 'Expected number, received nan'
+                    ? 'Informe o cep corretamente'
+                    : errors.cep.message}
+                </p>
+              ) : null}
+            </InputWrapper>
+            <InputWrapper>
+              <LargerInput placeholder="Rua" {...register('road')} />
+              {errors.road ? <p>{errors.road?.message}</p> : null}
+            </InputWrapper>
             <div>
-              <MediumInput type="number" placeholder="Número" />
+              <InputWrapper>
+                <MediumInput
+                  type="number"
+                  placeholder="Número"
+                  {...register('number', { valueAsNumber: true })}
+                />
+                {errors.number && (
+                  <p>
+                    {errors.number.message === 'Expected number, received nan'
+                      ? 'Informe o numero da casa'
+                      : errors.number.message}
+                  </p>
+                )}
+              </InputWrapper>
               <OptionalInput>
-                <LargerInput placeholder="Complemento" />
+                <LargerInput
+                  placeholder="Complemento"
+                  {...register('complement')}
+                />
               </OptionalInput>
             </div>
             <div>
-              <MediumInput placeholder="Bairro" />
-              <LargerInput placeholder="Cidade" />
-              <SmallInput placeholder="UF" />
+              <InputWrapper>
+                <MediumInput
+                  placeholder="Bairro"
+                  {...register('neighborhood')}
+                />
+                {errors.neighborhood && <p>{errors.neighborhood.message}</p>}
+              </InputWrapper>
+              <InputWrapper>
+                <LargerInput placeholder="Cidade" {...register('city')} />
+                {errors.city && <p>{errors.city.message}</p>}
+              </InputWrapper>
+              <InputWrapper>
+                <SmallInput placeholder="UF" {...register('uf')} />
+                {errors.uf && <p>{errors.uf.message}</p>}
+              </InputWrapper>
             </div>
           </AddressContainer>
 
@@ -65,9 +149,15 @@ export function Checkout() {
               icon={<CurrencyDollar size={22} />}
               iconColor="purple-500"
             />
+            {errors.payment ? <p>⚠ Informe o método de pagamento</p> : null}
             <PaymentList>
               <li>
-                <input type="radio" name="payment" id="creditCard" />
+                <input
+                  type="radio"
+                  id="creditCard"
+                  value="creditCard"
+                  {...register('payment')}
+                />
                 <label htmlFor="creditCard">
                   <CreditCard size={16} />
                   Cartão de crédito
@@ -75,7 +165,12 @@ export function Checkout() {
               </li>
 
               <li>
-                <input type="radio" name="payment" id="debitCard" />
+                <input
+                  type="radio"
+                  id="debitCard"
+                  value="debitCard"
+                  {...register('payment')}
+                />
                 <label htmlFor="debitCard">
                   <Bank size={16} />
                   Cartão de débito
@@ -83,7 +178,12 @@ export function Checkout() {
               </li>
 
               <li>
-                <input type="radio" name="payment" id="money" />
+                <input
+                  type="radio"
+                  id="money"
+                  value="money"
+                  {...register('payment')}
+                />
                 <label htmlFor="money">
                   <Money size={16} />
                   Dinheiro
@@ -120,7 +220,7 @@ export function Checkout() {
               <strong>R$ 23,30</strong>
             </div>
 
-            <button type="submit" onClick={handlePageSuccess}>
+            <button type="submit" form="address-form">
               Confirmar Pedido
             </button>
           </TotalWrapper>
