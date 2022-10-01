@@ -22,6 +22,15 @@ export const SuccessContainer = styled.div`
 
     color: ${(props) => props.theme['gray-800']};
   }
+
+  img {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 `
 
 export const Border = styled.div`
