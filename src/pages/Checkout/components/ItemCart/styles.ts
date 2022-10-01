@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const ItemCartContainer = styled.div`
   display: flex;
   align-items: center;
-  //width: 23rem;
   position: relative;
   padding-bottom: 2rem;
   border-bottom: 1px solid ${(props) => props.theme['gray-400']};

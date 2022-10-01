@@ -10,6 +10,10 @@ export const CheckoutContainer = styled.main`
     line-height: 1.3;
     margin-bottom: 1rem;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 export const FormContainer = styled.div``
@@ -24,6 +28,12 @@ export const AddressContainer = styled.div`
   > div {
     display: flex;
     gap: 0.75rem;
+
+    @media (max-width: 768px) {
+      &:nth-child(4) {
+        flex-direction: column;
+      }
+    }
   }
 `
 
@@ -49,6 +59,10 @@ export const SmallInput = styled(BaseInput)`
 
 export const MediumInput = styled(BaseInput)`
   width: 12.5rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 export const LargerInput = styled(BaseInput)`
@@ -130,13 +144,26 @@ export const PaymentList = styled.ul`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    label {
+      text-align: center;
+    }
+    svg {
+      display: none;
+    }
+  }
 `
 
 export const OrderDetailsCheckout = styled.div`
   width: 28rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 export const OrderConfirm = styled.div`
-  width: 28rem;
+  width: 100%;
   padding: 2.5rem;
   background-color: ${(props) => props.theme['gray-200']};
   border-radius: 6px 44px;
