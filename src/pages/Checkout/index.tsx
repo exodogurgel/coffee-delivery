@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import {
   Bank,
   CreditCard,
@@ -23,6 +25,11 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const navigate = useNavigate()
+
+  function handlePageSuccess() {
+    navigate('/success')
+  }
   return (
     <CheckoutContainer>
       <form action="">
@@ -104,7 +111,9 @@ export function Checkout() {
               <strong>R$ 23,30</strong>
             </div>
 
-            <button type="submit">Confirmar Pedido</button>
+            <button type="submit" onClick={handlePageSuccess}>
+              Confirmar Pedido
+            </button>
           </TotalWrapper>
         </OrderConfirm>
       </OrderDetailsCheckout>

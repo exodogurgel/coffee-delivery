@@ -16,7 +16,11 @@ export const InfoWithIconContainer = styled.div<InfoContainerProps>`
   align-items: center;
   gap: 0.75rem;
 
-  span:first-child {
+  b {
+    color: ${(props) => props.theme['gray-700']};
+  }
+
+  > span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,3 +41,4 @@ export const InfoWithIconContainer = styled.div<InfoContainerProps>`
     line-height: 1.3;
   }
 `
+export const TextWrapper = styled.div``

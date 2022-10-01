@@ -11,7 +11,7 @@ import {
 
 import bannerImage from '../../assets/coffee-delivery.png'
 import { CoffeeCard } from './components/CoffeeCard'
-import { InfoWithIcon } from './components/InfoWithIcon'
+import { InfoWithIcon } from '../../components/InfoWithIcon'
 import { coffees } from '../../data/coffees'
 
 export function Home() {
