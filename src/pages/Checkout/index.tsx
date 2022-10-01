@@ -22,6 +22,7 @@ import {
   PaymentList,
   OrderConfirm,
   TotalWrapper,
+  ItemsListContainer,
 } from './styles'
 
 export function Checkout() {
@@ -95,8 +96,16 @@ export function Checkout() {
       <OrderDetailsCheckout>
         <h2>Cafés selecionados</h2>
         <OrderConfirm>
-          <ItemCart />
-          <ItemCart />
+          <ItemsListContainer>
+            <ItemCart />
+            <ItemCart />
+            <ItemCart />
+            <ItemCart />
+            <ItemCart />
+            <ItemCart />
+            <ItemCart />
+            <ItemCart />
+          </ItemsListContainer>
           <TotalWrapper>
             <div>
               <small>Total de itens</small>

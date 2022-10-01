@@ -167,10 +167,14 @@ export const OrderConfirm = styled.div`
   padding: 2.5rem;
   background-color: ${(props) => props.theme['gray-200']};
   border-radius: 6px 44px;
+`
 
+export const ItemsListContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  height: 18.4rem;
+  overflow: auto;
 `
 export const TotalWrapper = styled.div`
   margin-top: 1.5rem;
