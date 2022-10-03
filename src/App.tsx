@@ -4,12 +4,15 @@ import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/themes/defaultTheme'
 import { GlobalStyle } from './styles/global'
 import { Router } from './Router'
+import { CartContextProvider } from './contexts/CartContext'
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        <Router />
+        <CartContextProvider>
+          <Router />
+        </CartContextProvider>
       </BrowserRouter>
 
       <GlobalStyle />

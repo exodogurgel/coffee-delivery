@@ -6,6 +6,7 @@ export const coffees = [
     tags: ['tradicional'],
     description: 'O tradicional café feito com água quente e grãos moídos',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const coffees = [
     tags: ['tradicional'],
     description: 'Expresso diluído, menos intenso que o tradicional',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const coffees = [
     tags: ['tradicional'],
     description: 'Café expresso tradicional com espuma cremosa',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const coffees = [
     tags: ['tradicional', 'gelado'],
     description: 'Bebida preparada com café expresso e cubos de gelo',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ export const coffees = [
     tags: ['tradicional', 'com leite'],
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 6,
@@ -47,6 +52,7 @@ export const coffees = [
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ export const coffees = [
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 8,
@@ -65,6 +72,7 @@ export const coffees = [
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 9,
@@ -73,6 +81,7 @@ export const coffees = [
     tags: ['tradicional', 'com leite'],
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 10,
@@ -81,6 +90,7 @@ export const coffees = [
     tags: ['especial', 'com leite'],
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 11,
@@ -90,6 +100,7 @@ export const coffees = [
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 12,
@@ -98,6 +109,7 @@ export const coffees = [
     tags: ['especial'],
     description: 'Bebida adocicada preparada com café e leite de coco',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 13,
@@ -106,6 +118,7 @@ export const coffees = [
     tags: ['especial'],
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     price: 9.9,
+    amount: 1,
   },
   {
     id: 14,
@@ -114,5 +127,6 @@ export const coffees = [
     tags: ['especial', 'alcoólico'],
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     price: 9.9,
+    amount: 1,
   },
 ]

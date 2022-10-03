@@ -1,38 +1,36 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { AddCartWrapper, CoffeeCardContainer, Tags } from './styles'
 
 import { ShoppingCartSimple } from 'phosphor-react'
 import { FormatPrice } from '../../../../utils/formatPrice'
 import { InputAmount } from '../../../../components/InputAmount'
-
-interface Coffee {
-  id: number
-  image: string
-  name: string
-  tags: string[]
-  description: string
-  price: number
-}
+import { CartContext, Coffee } from '../../../../contexts/CartContext'
 
 interface CoffeeProps {
   coffee: Coffee
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
-  const [quantity, setQuantity] = useState(1)
+  const { addCoffee } = useContext(CartContext)
 
-  const formattedPrice = FormatPrice(coffee.price)
+  const [amount, setAmount] = useState(1)
 
   function handleIncrease() {
-    setQuantity((state) => state + 1)
+    setAmount((state) => state + 1)
   }
 
   function handleDecrease() {
-    if (quantity <= 1) {
+    if (amount <= 1) {
       return
     }
 
-    setQuantity((state) => state - 1)
+    setAmount((state) => state - 1)
+  }
+
+  const formattedPrice = FormatPrice(coffee.price)
+
+  function handleAddCoffeeToCart() {
+    addCoffee({ coffee, amount })
   }
 
   return (
@@ -52,9 +50,13 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
         <InputAmount
           handleDecrease={handleDecrease}
           handleIncrease={handleIncrease}
-          quantity={quantity}
+          quantity={amount}
         />
-        <button type="button" title="Adicionar ao carrinho">
+        <button
+          type="button"
+          title="Adicionar ao carrinho"
+          onClick={handleAddCoffeeToCart}
+        >
           <ShoppingCartSimple size={22} weight="fill" />
         </button>
       </AddCartWrapper>
