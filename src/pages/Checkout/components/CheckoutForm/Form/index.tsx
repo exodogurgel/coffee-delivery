@@ -51,7 +51,7 @@ export function Form() {
           {errors.cep ? (
             <p>
               {errors.cep.message === 'Expected number, received nan'
-                ? 'Informe o cep corretamente'
+                ? 'Informe um CEP válido'
                 : errors.cep.message}
             </p>
           ) : null}
