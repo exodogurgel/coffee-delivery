@@ -6,6 +6,8 @@ import * as zod from 'zod'
 import { CheckoutContainer } from './styles'
 import { Form } from './components/CheckoutForm/Form'
 import { OrderDetailsCheckout } from './components/OrderDetailsCheckout'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 
 const AddressConfirmValidationSchema = zod.object({
   cep: zod.number().min(100000, 'Informe um CEP válido'),
@@ -27,6 +29,8 @@ export function Checkout() {
     resolver: zodResolver(AddressConfirmValidationSchema),
   })
 
+  const { clearCart } = useContext(CartContext)
+
   const { handleSubmit, reset } = addressConfirmForm
 
   const navigate = useNavigate()
@@ -36,6 +40,8 @@ export function Checkout() {
     navigate('/success', {
       state: data,
     })
+
+    clearCart()
   }
 
   return (

@@ -26,6 +26,7 @@ export const InfoWithIconContainer = styled.div<InfoContainerProps>`
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
+    font-size: 1rem;
 
     background-color: ${(props) => props.theme[BACKGROUND_COLOR[props.bgIcon]]};
     color: ${(props) => props.theme['gray-100']};
