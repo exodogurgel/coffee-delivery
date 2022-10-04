@@ -18,6 +18,7 @@ export const InfoWithIconContainer = styled.div<InfoContainerProps>`
 
   b {
     color: ${(props) => props.theme['gray-700']};
+    font-size: 1rem;
   }
 
   > span {
@@ -39,6 +40,7 @@ export const InfoWithIconContainer = styled.div<InfoContainerProps>`
   p {
     color: ${(props) => props.theme['gray-700']};
     line-height: 1.3;
+    font-size: 1rem;
   }
 `
 export const TextWrapper = styled.div``

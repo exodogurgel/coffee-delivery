@@ -111,7 +111,7 @@ export function Form() {
             <input
               type="radio"
               id="creditCard"
-              value="creditCard"
+              value="Cartão de Crédito"
               {...register('payment')}
             />
             <label htmlFor="creditCard">
@@ -124,7 +124,7 @@ export function Form() {
             <input
               type="radio"
               id="debitCard"
-              value="debitCard"
+              value="Cartão de Débito"
               {...register('payment')}
             />
             <label htmlFor="debitCard">
@@ -137,7 +137,7 @@ export function Form() {
             <input
               type="radio"
               id="money"
-              value="money"
+              value="Dinheiro"
               {...register('payment')}
             />
             <label htmlFor="money">

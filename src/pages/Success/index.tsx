@@ -1,10 +1,14 @@
 import { Border, SuccessContainer } from './styles'
-
 import illustrationImage from '../../assets/illustration.png'
 import { InfoWithIcon } from '../../components/InfoWithIcon'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useLocation } from 'react-router-dom'
+import { AddressConfirmFormData } from '../Checkout'
 
 export function Success() {
+  const location = useLocation()
+  const state = location.state as AddressConfirmFormData
+
   return (
     <SuccessContainer>
       <div>
@@ -14,8 +18,8 @@ export function Success() {
           <div>
             <InfoWithIcon
               text="Entrega em "
-              address="Rua João Daniel Martinelli, 101"
-              subtitle="Farrapos - Porto Alegre, RS"
+              address={`Rua ${state.road}, ${state.number}`}
+              subtitle={`${state.neighborhood} - ${state.city}, ${state.uf}`}
               bgIcon="purple"
               icon={<MapPin />}
             />
@@ -29,8 +33,8 @@ export function Success() {
             />
 
             <InfoWithIcon
-              text="Pagamento na entrada"
-              subtitle="Cartão de Crédito"
+              text="Pagamento na entrega"
+              subtitle={state.payment}
               bgIcon="yellowDark"
               icon={<CurrencyDollar />}
               textBold

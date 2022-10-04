@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
@@ -17,7 +18,9 @@ const AddressConfirmValidationSchema = zod.object({
   uf: zod.string().min(1, 'Informe'),
 })
 
-type AddressConfirmFormData = zod.infer<typeof AddressConfirmValidationSchema>
+export type AddressConfirmFormData = zod.infer<
+  typeof AddressConfirmValidationSchema
+>
 
 export function Checkout() {
   const addressConfirmForm = useForm<AddressConfirmFormData>({
@@ -26,9 +29,13 @@ export function Checkout() {
 
   const { handleSubmit, reset } = addressConfirmForm
 
+  const navigate = useNavigate()
+
   function handleAddressConfirmation(data: AddressConfirmFormData) {
-    console.log(data)
     reset()
+    navigate('/success', {
+      state: data,
+    })
   }
 
   return (
