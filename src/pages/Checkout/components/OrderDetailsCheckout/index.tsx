@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { CartContext } from '../../../../contexts/CartContext'
+import { FormatPrice } from '../../../../utils/formatPrice'
 import { ItemCart } from '../ItemCart'
 import {
   ItemsListContainer,
@@ -10,6 +11,17 @@ import {
 
 export function OrderDetailsCheckout() {
   const { cart } = useContext(CartContext)
+
+  const cartTotal = cart.reduce((sumTotal, coffee) => {
+    return sumTotal + coffee.price * coffee.amount
+  }, 0)
+
+  const cartTotalFormatted = FormatPrice(cartTotal)
+
+  const deliveryFee = 3.5
+
+  const total = FormatPrice(cartTotal + deliveryFee)
+
   return (
     <OrderDetailsCheckoutContainer>
       <h2>Cafés selecionados</h2>
@@ -22,7 +34,7 @@ export function OrderDetailsCheckout() {
         <TotalWrapper>
           <div>
             <small>Total de itens</small>
-            <span>R$ 19,80</span>
+            <span>R$ {cartTotalFormatted}</span>
           </div>
           <div>
             <small>Entrega</small>
@@ -30,7 +42,7 @@ export function OrderDetailsCheckout() {
           </div>
           <div>
             <strong>Total</strong>
-            <strong>R$ 23,30</strong>
+            <strong>R$ {total}</strong>
           </div>
 
           <button type="submit" form="address-form">
