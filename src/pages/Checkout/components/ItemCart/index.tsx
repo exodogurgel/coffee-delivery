@@ -12,7 +12,7 @@ interface ItemCartProps {
 export function ItemCart({ coffee }: ItemCartProps) {
   const [amount, setAmount] = useState(coffee.amount)
 
-  const { updateCoffee } = useContext(CartContext)
+  const { updateCoffee, removeCoffee } = useContext(CartContext)
 
   const priceFormatted = FormatPrice(coffee.price)
 
@@ -29,6 +29,10 @@ export function ItemCart({ coffee }: ItemCartProps) {
     setAmount((state) => state - 1)
     updateCoffee({ coffeeId: coffee.id, amount: amount - 1 })
   }
+
+  function handleRemoveCoffee() {
+    removeCoffee(coffee.id)
+  }
   return (
     <ItemCartContainer>
       <img src={`/public/coffees/${coffee.image}`} alt="" />
@@ -40,7 +44,7 @@ export function ItemCart({ coffee }: ItemCartProps) {
             handleIncrease={handleIncrease}
             quantity={amount}
           />
-          <ButtonRemove type="button">
+          <ButtonRemove type="button" onClick={handleRemoveCoffee}>
             <Trash size={16} />
             Remover
           </ButtonRemove>
