@@ -22,10 +22,17 @@ export function Header() {
             <MapPin size={22} weight="fill" /> Porto Alegre, RS
           </span>
 
-          <Cart items={cartItems} title="Carrinho de compras" to="/checkout">
-            <ShoppingCart size={22} weight="fill" />
-            {cartItems > 0 ? <strong>{cartItems}</strong> : null}
-          </Cart>
+          {cartItems > 0 ? (
+            <Cart items={cartItems} title="Carrinho de compras" to="/checkout">
+              <ShoppingCart size={22} weight="fill" />
+              {cartItems > 0 ? <strong>{cartItems}</strong> : null}
+            </Cart>
+          ) : (
+            <Cart items={cartItems} title="Carrinho de compras" to="">
+              <ShoppingCart size={22} weight="fill" />
+              {cartItems > 0 ? <strong>{cartItems}</strong> : null}
+            </Cart>
+          )}
         </div>
       </div>
     </HeaderContainer>
