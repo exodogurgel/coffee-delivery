@@ -17,6 +17,13 @@ export const GlobalStyle = createGlobalStyle`
     color: ${(props) => props.theme['gray-900']};
     -webkit-font-smoothing: antialiased;
     overflow: overlay;
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: ${(props) => props.theme['gray-500']};
+    }
   }
   
   body, input, textarea, button {

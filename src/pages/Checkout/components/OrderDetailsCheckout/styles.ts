@@ -20,6 +20,13 @@ export const ItemsListContainer = styled.div`
   gap: 1.5rem;
   height: 18.4rem;
   overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme['gray-500']};
+  }
 `
 export const TotalWrapper = styled.div`
   margin-top: 1.5rem;
