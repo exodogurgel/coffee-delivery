@@ -1,32 +1,44 @@
 import { Trash } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { InputAmount } from '../../../../components/InputAmount'
 import { ButtonRemove, ItemCartContainer } from './styles'
+import { CartContext, CoffeeCartProps } from '../../../../contexts/CartContext'
+import { FormatPrice } from '../../../../utils/formatPrice'
 
-export function ItemCart() {
-  const [quantity, setQuantity] = useState(1)
+interface ItemCartProps {
+  coffee: CoffeeCartProps
+}
+
+export function ItemCart({ coffee }: ItemCartProps) {
+  const [amount, setAmount] = useState(coffee.amount)
+
+  const { updateCoffee } = useContext(CartContext)
+
+  const priceFormatted = FormatPrice(coffee.price)
 
   function handleIncrease() {
-    setQuantity((state) => state + 1)
+    setAmount((state) => state + 1)
+    updateCoffee({ coffeeId: coffee.id, amount })
   }
 
   function handleDecrease() {
-    if (quantity <= 1) {
+    if (amount <= 1) {
       return
     }
 
-    setQuantity((state) => state - 1)
+    setAmount((state) => state - 1)
+    updateCoffee({ coffeeId: coffee.id, amount })
   }
   return (
     <ItemCartContainer>
-      <img src="/public/coffees/american.svg" alt="" />
+      <img src={`/public/coffees/${coffee.image}`} alt="" />
       <div>
-        <span>Expresso Tradicional</span>
+        <span>{coffee.name}</span>
         <div>
           <InputAmount
             handleDecrease={handleDecrease}
             handleIncrease={handleIncrease}
-            quantity={quantity}
+            quantity={amount}
           />
           <ButtonRemove type="button">
             <Trash size={16} />
@@ -34,7 +46,7 @@ export function ItemCart() {
           </ButtonRemove>
         </div>
       </div>
-      <span>R$ 9,90</span>
+      <span>R$ {priceFormatted}</span>
     </ItemCartContainer>
   )
 }

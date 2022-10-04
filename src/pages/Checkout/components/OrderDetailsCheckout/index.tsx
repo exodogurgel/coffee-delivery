@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import { CartContext } from '../../../../contexts/CartContext'
 import { ItemCart } from '../ItemCart'
 import {
   ItemsListContainer,
@@ -7,19 +9,15 @@ import {
 } from './styles'
 
 export function OrderDetailsCheckout() {
+  const { cart } = useContext(CartContext)
   return (
     <OrderDetailsCheckoutContainer>
       <h2>Cafés selecionados</h2>
       <OrderConfirm>
         <ItemsListContainer>
-          <ItemCart />
-          <ItemCart />
-          <ItemCart />
-          <ItemCart />
-          <ItemCart />
-          <ItemCart />
-          <ItemCart />
-          <ItemCart />
+          {cart.map((item) => {
+            return <ItemCart key={item.id} coffee={item} />
+          })}
         </ItemsListContainer>
         <TotalWrapper>
           <div>

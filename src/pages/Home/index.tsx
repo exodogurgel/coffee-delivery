@@ -1,5 +1,3 @@
-import { useContext } from 'react'
-import { CartContext } from '../../contexts/CartContext'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import {
   Background,
@@ -17,8 +15,6 @@ import { InfoWithIcon } from '../../components/InfoWithIcon'
 import { coffees } from '../../data/coffees'
 
 export function Home() {
-  const { cart } = useContext(CartContext)
-  console.log(cart)
   return (
     <HomeContainer>
       <Background />
