@@ -5,10 +5,10 @@
 <p align="center" margin-top="25px" >
   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/exodogurgel/coffee-delivery" />
 
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/exodogurgel/coffee-delivery" />
+
+  <img alt="Github License" src="https://img.shields.io/github/license/exodogurgel/coffee-delivery?color=blueviolet" />
   
-  <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/exodogurgel/todo-list" />
-  
-  <img alt="Github License" src="https://img.shields.io/github/license/exodogurgel/todo-list?color=blueviolet" />
 </p>
 
 ![image](.github/coffee-delivery.png)
@@ -17,18 +17,24 @@ ___
 ## 💻 About
 
 
-In this challenge, I developed a to-do list-style task control application, which contains the following functionalities:
-- [x] Add a new task
-- [x] Mark and unmark a task as complete
-- [x] Remove a task from the list
-- [x] Show task completion progress
+In this challenge, an application was developed to manage a shopping cart of a fictitious coffee shop, which contains the following features:
+- [x] List of products (coffees) available for purchase
+- [x] Add specific amount of items to cart
+- [x] Increase or remove the amount of items in the cart
+- [x] Form for the user to fill in his address
+- [x] Display total items in cart in Header
+- [x] Display the total value of the sum of items in the cart multiplied by the value
 
 Although there are few features, concepts such as:
 - States
 - State immutability
 - Lists and keys in ReactJS
+- ContextAPI
+- LocalStorage
 - Properties
 - Componentization
+- Eslint
+- Reducer
 ___
 
 ## 🛠 Tech Stack
@@ -38,13 +44,19 @@ This project was developed with the following technologies:
 - [React](https://reactjs.org)
 - [Vite](https://vitejs.dev)
 - [TypeScript](https://www.typescriptlang.org)
+- [React-Hook-Form](https://react-hook-form.com)
+- [styled-components](https://styled-components.com)
+- [Immer](https://immerjs.github.io/immer)
+- [Toastify](https://fkhadra.github.io/react-toastify/introduction)
 ___
 
 ## 🔖 Layout
-
 You can view the layout of the project via the link below:
 
-- [Layout Web](https://www.figma.com/files/recent?fuid=1032441823065182190)
+- [Layout Web](https://www.figma.com/file/dRLIV6D3bLlq31uIEwV76Y/Coffee-Delivery-(Copy)?node-id=2%3A1550)
+
+## Web
+<img alt="" src=".github/coffee-delivery.gif"/>
 ___
 
 ## 🚀 How it works
@@ -56,10 +68,10 @@ Before you begin, you will need to have the following tools installed on your ma
 
 ```bash
 # Clone this repository
-$ git clone git@github.com:exodogurgel/todo-list.git
+$ git clone git@github.com:exodogurgel/coffee-delivery.git
 
 # Access the project folder in your terminal
-$ cd todo-list
+$ cd coffee-delivery
 
 # Install the dependencies
 $ npm install
@@ -88,6 +100,6 @@ ___
 
 This project is under the license [MIT](./LICENSE).
 
-Made with ❤️ by Êxodo Gurgel 👋🏽 [Get in Touch!](Https://www.linkedin.com/in/exodo-gurgel/)
+Made with ❤️ by Êxodo Gurgel 👋🏽 [Get in Touch!](Https://www.linkedin.com/in/exodo-gurgel/coffee-delivery)
 
 ---
