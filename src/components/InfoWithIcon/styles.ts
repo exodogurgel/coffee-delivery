@@ -26,7 +26,6 @@ export const InfoWithIconContainer = styled.div<InfoContainerProps>`
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    font-size: 1rem;
 
     background-color: ${(props) => props.theme[BACKGROUND_COLOR[props.bgIcon]]};
     color: ${(props) => props.theme['gray-100']};
@@ -37,11 +36,11 @@ export const InfoWithIconContainer = styled.div<InfoContainerProps>`
       width: 2.7rem;
     }
   }
-
+`
+export const TextWrapper = styled.div`
   p {
     color: ${(props) => props.theme['gray-700']};
     line-height: 1.3;
-    font-size: 1rem;
+    font-size: 1rem !important;
   }
 `
-export const TextWrapper = styled.div``
