@@ -2,8 +2,9 @@ import { Trash } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import { InputAmount } from '../../../../components/InputAmount'
 import { ButtonRemove, ItemCartContainer } from './styles'
-import { CartContext, CoffeeCartProps } from '../../../../contexts/CartContext'
+import { CartContext } from '../../../../contexts/CartContext'
 import { FormatPrice } from '../../../../utils/formatPrice'
+import { CoffeeCartProps } from '../../../../reducers/cart/reducer'
 
 interface ItemCartProps {
   coffee: CoffeeCartProps
