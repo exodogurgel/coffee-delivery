@@ -5,6 +5,8 @@ import { defaultTheme } from './styles/themes/defaultTheme'
 import { GlobalStyle } from './styles/global'
 import { Router } from './Router'
 import { CartContextProvider } from './contexts/CartContext'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 export function App() {
   return (
@@ -16,6 +18,7 @@ export function App() {
       </BrowserRouter>
 
       <GlobalStyle />
+      <ToastContainer autoClose={2000} position={'top-center'} />
     </ThemeProvider>
   )
 }

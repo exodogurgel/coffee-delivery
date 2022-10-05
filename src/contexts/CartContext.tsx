@@ -7,6 +7,7 @@ import {
 } from '../reducers/cart/actions'
 
 import { CoffeeCartProps, cartReducer } from '../reducers/cart/reducer'
+import { toast } from 'react-toastify'
 
 export interface Coffee {
   id: number
@@ -60,6 +61,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
 
     dispatch(addCoffeeToCartAction({ newCoffee, amount }))
+    toast.success('Café adicionado ao carrinho!')
   }
 
   function updateCoffee({ coffeeId, amount }: UpdatedCartProps) {
@@ -68,6 +70,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   function removeCoffee(coffeeId: number) {
     dispatch(removeCoffeeFromCartAction(coffeeId))
+    toast.success('Café removido do carrinho!')
   }
 
   function clearCart() {

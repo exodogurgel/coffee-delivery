@@ -7,6 +7,13 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+  // this is the default value below
+  --toastify-color-light: ${(props) => props.theme['purple-300']};
+  --toastify-icon-color-success: ${(props) => props.theme['purple-700']};
+  --toastify-color-progress-success: ${(props) => props.theme['purple-700']};
+}
+
   :focus {
     outline: 0;
     box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-700']};
