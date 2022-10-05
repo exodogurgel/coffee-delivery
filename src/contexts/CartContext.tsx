@@ -1,4 +1,12 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useReducer } from 'react'
+import {
+  addCoffeeToCartAction,
+  clearCoffeeFromCartAction,
+  removeCoffeeFromCartAction,
+  updatedCoffeeAction,
+} from '../reducers/cart/actions'
+
+import { CoffeeCartProps, cartReducer } from '../reducers/cart/reducer'
 
 export interface Coffee {
   id: number
@@ -6,14 +14,6 @@ export interface Coffee {
   name: string
   tags: string[]
   description: string
-  price: number
-  amount: number
-}
-
-export interface CoffeeCartProps {
-  id: number
-  image: string
-  name: string
   price: number
   amount: number
 }
@@ -43,59 +43,35 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextType)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cart, setCart] = useState<CoffeeCartProps[]>([])
+  const [cartState, dispatch] = useReducer(cartReducer, {
+    cart: [],
+    amount: 0,
+  })
+
+  const { cart } = cartState
 
   function addCoffee({ coffee, amount }: addCoffeeProps) {
-    try {
-      const updatedCart = [...cart]
-      const productAlreadyExists = updatedCart.find(
-        (item) => item.id === coffee.id,
-      )
-
-      let newCoffee: CoffeeCartProps
-
-      if (productAlreadyExists) {
-        productAlreadyExists.amount += amount
-      } else {
-        newCoffee = {
-          id: coffee.id,
-          name: coffee.name,
-          image: coffee.image,
-          price: coffee.price,
-          amount,
-        }
-        updatedCart.push(newCoffee)
-      }
-      setCart(updatedCart)
-    } catch {
-      console.log('error')
+    const newCoffee: CoffeeCartProps = {
+      id: coffee.id,
+      name: coffee.name,
+      image: coffee.image,
+      price: coffee.price,
+      amount,
     }
+
+    dispatch(addCoffeeToCartAction({ newCoffee, amount }))
   }
 
   function updateCoffee({ coffeeId, amount }: UpdatedCartProps) {
-    try {
-      const updatedCart = [...cart]
-
-      const updatedItem = updatedCart.find((item) => item.id === coffeeId)
-      if (updatedItem) {
-        updatedItem.amount = amount
-      } else {
-        return
-      }
-
-      setCart(updatedCart)
-    } catch {
-      console.log('error')
-    }
-  }
-
-  function clearCart() {
-    setCart([])
+    dispatch(updatedCoffeeAction(coffeeId, amount))
   }
 
   function removeCoffee(coffeeId: number) {
-    const coffeeFiltered = cart.filter((coffee) => coffee.id !== coffeeId)
-    setCart(coffeeFiltered)
+    dispatch(removeCoffeeFromCartAction(coffeeId))
+  }
+
+  function clearCart() {
+    dispatch(clearCoffeeFromCartAction())
   }
 
   return (
