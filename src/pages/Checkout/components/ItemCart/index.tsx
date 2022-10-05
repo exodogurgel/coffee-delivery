@@ -36,7 +36,7 @@ export function ItemCart({ coffee }: ItemCartProps) {
   }
   return (
     <ItemCartContainer>
-      <img src={`/public/coffees/${coffee.image}`} alt="" />
+      <img src={`coffees/${coffee.image}`} alt="" />
       <div>
         <span>{coffee.name}</span>
         <div>
