@@ -76,6 +76,8 @@ export const AddCartWrapper = styled.div`
     align-items: center;
     justify-content: center;
 
+    cursor: pointer;
+
     transition: background-color 0.1s;
   }
 
